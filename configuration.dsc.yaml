@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+properties:
+  assertions:
+    - resource: Microsoft.Windows.Developer/OsVersion
+      directives:
+        description: Verify at least Windows 11 22H2 installed
+        allowPrerelease: false
+      settings:
+        MinVersion: '10.0.22621'
+  resources:
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: pwsh
+      directives:
+        description: Install PowerShell
+        allowPrerelease: false
+      settings:
+        id: Microsoft.PowerShell
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: bicep
+      directives:
+        description: Install Bicep
+        allowPrerelease: false
+      settings:
+        id: Microsoft.Bicep
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: azcli
+      directives:
+        description: Install Azure CLI
+        allowPrerelease: false
+      settings:
+        id: Microsoft.AzureCLI
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: func
+      directives:
+        description: Install Azure Functions Core Tools
+        allowPrerelease: false
+      settings:
+        id: Microsoft.Azure.FunctionsCoreTools
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: wingit
+      directives:
+        description: Install Git for Windows
+        allowPrerelease: false
+      settings:
+        id: Microsoft.Git
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: vs2022
+      directives:
+        description: Install Visual Studio 2022 Enterprise
+        allowPrerelease: false
+      settings:
+        id: Microsoft.VisualStudio.2022.Enterprise
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: vscode
+      directives:
+        description: Install Visual Studio Code
+        allowPrerelease: false
+      settings:
+        id: Microsoft.VisualStudioCode
+        source: winget
+  configurationVersion: 0.2.0
