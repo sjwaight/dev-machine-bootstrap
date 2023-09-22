@@ -12,3 +12,13 @@ Setup your tools on a clean PC by doing the following:
   winget configure configuration.dsc.yaml
   ```
 - Grab a coffee while stuff installs.
+
+## Getting winget to install on Windows Server 2022
+
+- Download the Winget preview release (direct link).
+- Download the Winget license file for the release (direct link).
+- Run this command
+
+```
+
+```
