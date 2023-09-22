@@ -4,7 +4,7 @@ properties:
     - resource: Microsoft.Windows.Developer/OsVersion
       directives:
         description: Verify at least Windows 11 22H2 installed
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         MinVersion: '10.0.22621'
   resources:
@@ -12,7 +12,7 @@ properties:
       id: pwsh
       directives:
         description: Install PowerShell
-        allowPrerelease: false
+        allowPrerelease: true # must be true because Microsoft.WinGet.DSC is pre-release
       settings:
         id: Microsoft.PowerShell
         source: winget
@@ -20,7 +20,7 @@ properties:
       id: bicep
       directives:
         description: Install Bicep
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Microsoft.Bicep
         source: winget
@@ -28,7 +28,7 @@ properties:
       id: azcli
       directives:
         description: Install Azure CLI
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Microsoft.AzureCLI
         source: winget
@@ -36,7 +36,7 @@ properties:
       id: func
       directives:
         description: Install Azure Functions Core Tools
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Microsoft.Azure.FunctionsCoreTools
         source: winget
@@ -44,7 +44,7 @@ properties:
       id: wingit
       directives:
         description: Install Git for Windows
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Microsoft.Git
         source: winget
@@ -52,7 +52,7 @@ properties:
       id: vs2022
       directives:
         description: Install Visual Studio 2022 Enterprise
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Microsoft.VisualStudio.2022.Enterprise
         source: winget
@@ -60,8 +60,19 @@ properties:
       id: vscode
       directives:
         description: Install Visual Studio Code
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Microsoft.VisualStudioCode
         source: winget
+    # - resource: Microsoft.VisualStudio.DSC/VSComponents
+    #   dependsOn:
+    #     - vsPackage
+    #   directives:
+    #     description: Install required VS workloads from vsconfig file
+    #     allowPrerelease: false
+    #   settings:
+    #     productId: Microsoft.VisualStudio.Product.Community
+    #     channelId: VisualStudio.17.Release
+    #     vsConfigFile: '${WinGetConfigRoot}\..\.vsconfig'
+    #     includeRecommended: true
   configurationVersion: 0.2.0
