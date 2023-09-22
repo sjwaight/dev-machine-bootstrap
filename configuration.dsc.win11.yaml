@@ -6,7 +6,7 @@ properties:
         description: Verify at least Windows 11 22H2 installed
         allowPrerelease: true
       settings:
-        MinVersion: '10.0.22621'
+        MinVersion: '10.0.22620' # Needs to be actual-1 - https://github.com/microsoft/winget-cli/issues/3654
   resources:
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: pwsh
